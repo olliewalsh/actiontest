@@ -22,5 +22,6 @@ jobs:
         molecule test
       env:
         LIBVIRT_DEFAULT_URI: qemu:///session
+        LIBVIRT_DOMAIN_TYPE: hvf
 
     
