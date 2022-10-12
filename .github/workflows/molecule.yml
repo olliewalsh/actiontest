@@ -14,7 +14,7 @@ jobs:
         brew install python@3
         brew install vagrant
         brew install libvirt
-        pip install ansible libvirt-python python-vagrant molecule molecule-vagrant
+        python3 -m pip install ansible libvirt-python python-vagrant molecule molecule-vagrant
     - name: Run molecule
       run: |
         cd myrole
