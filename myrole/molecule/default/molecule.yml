@@ -17,11 +17,6 @@ platforms:
       uri: ${LIBVIRT_DEFAULT_URI:-"/var/run/libvirt/libvirt-sock"}
       system_uri: ${LIBVIRT_SYSTEM_URI:-"/var/run/libvirt/libvirt-sock"}
       driver: ${LIBVIRT_DOMAIN_TYPE:-"kvm"}
-    interfaces:
-      - auto_config: true
-        network_name: private_network
-        type: static
-        ip: 192.168.10.10
 provisioner:
   name: ansible
   connection_options:
