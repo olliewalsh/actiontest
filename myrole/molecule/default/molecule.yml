@@ -14,7 +14,9 @@ platforms:
       nested: true
       cpu_mode: host-passthrough
       volume_cache: none
-      driver: ${LIBVIRT_DOMAIN_TYPE:-kvm}
+      uri: ${LIBVIRT_DEFAULT_URI:-"qemu:///session"}
+      system_uri: ${LIBVIRT_SYSTEM_URI:-"qemu:///session"}
+      driver: ${LIBVIRT_DOMAIN_TYPE:-"kvm"}
     interfaces:
       - auto_config: true
         network_name: private_network
