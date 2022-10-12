@@ -8,6 +8,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Install depenencies
+      run: |
+        brew update
+        brew install vagrant
+        brew install libvirt
+        pip install ansible libvirt-python python-vagrant molecule molecule-vagrant
     - name: Run molecule
       run: |
         cd myrole
