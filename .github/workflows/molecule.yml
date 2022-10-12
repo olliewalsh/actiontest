@@ -11,6 +11,7 @@ jobs:
     - name: Install depenencies
       run: |
         brew update
+        brew install python@3
         brew install vagrant
         brew install libvirt
         pip install ansible libvirt-python python-vagrant molecule molecule-vagrant
