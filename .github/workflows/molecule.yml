@@ -14,6 +14,8 @@ jobs:
         brew install vagrant
         brew install libvirt
         brew services start libvirt
+        virsh -c "qemu:///session" capabilities
+        exit 1
         python3 -m pip install ansible libvirt-python python-vagrant molecule molecule-vagrant
         vagrant plugin install vagrant-libvirt
     - name: Run molecule
