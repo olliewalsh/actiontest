@@ -1,0 +1,28 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+  provider:
+    name: libvirt
+platforms:
+  - name: centos9
+    box: generic/centos9s
+    memory: 12288
+    cpus: 4
+    provider_options:
+      nested: true
+      cpu_mode: host-passthrough
+      volume_cache: none
+    interfaces:
+      - auto_config: true
+        network_name: private_network
+        type: static
+        ip: 192.168.10.10
+provisioner:
+  name: ansible
+  connection_options:
+    ansible_ssh_user: vagrant
+  log: true
+verifier:
+  name: ansible
