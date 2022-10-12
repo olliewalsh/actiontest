@@ -16,6 +16,8 @@ jobs:
         brew services start libvirt
         python3 -m pip install ansible libvirt-python python-vagrant molecule molecule-vagrant
         vagrant plugin install vagrant-libvirt
+      env:
+        HOMEBREW_NO_INSTALL_CLEANUP: 1
     - name: Run molecule
       run: |
         cd myrole
