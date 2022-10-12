@@ -13,6 +13,7 @@ jobs:
         brew update
         brew install vagrant
         brew install libvirt
+        brew services start libvirt
         python3 -m pip install ansible libvirt-python python-vagrant molecule molecule-vagrant
         vagrant plugin install vagrant-libvirt
     - name: Run molecule
