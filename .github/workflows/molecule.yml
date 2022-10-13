@@ -11,8 +11,7 @@ jobs:
     - name: Install depenencies
       run: |
         brew update
-        brew install virtualbox
-        brew install vagrant
+        brew install virtualbox@6.0 vagrant
         python3 -m pip install ansible python-vagrant molecule molecule-vagrant
       env:
         HOMEBREW_NO_INSTALL_CLEANUP: 1
