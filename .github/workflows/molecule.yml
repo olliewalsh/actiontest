@@ -23,8 +23,8 @@ jobs:
         cd myrole
         molecule test
       env:
-        LIBVIRT_DEFAULT_URI: /opt/homebrew/var/run/libvirt/libvirt-sock
-        LIBVIRT_SYSTEM_URI: /opt/homebrew/var/run/libvirt/libvirt-sock
+        LIBVIRT_DEFAULT_URI: qemu:///session
+        LIBVIRT_SYSTEM_URI: qemu:///session
         LIBVIRT_DOMAIN_TYPE: hvf
 
     
