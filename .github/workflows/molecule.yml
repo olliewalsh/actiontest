@@ -11,20 +11,14 @@ jobs:
     - name: Install depenencies
       run: |
         brew update
+        brew install virtualbox
         brew install vagrant
-        brew install libvirt
-        brew services start libvirt
-        python3 -m pip install ansible libvirt-python python-vagrant molecule molecule-vagrant
-        vagrant plugin install vagrant-libvirt
+        python3 -m pip install ansible python-vagrant molecule molecule-vagrant
       env:
         HOMEBREW_NO_INSTALL_CLEANUP: 1
     - name: Run molecule
       run: |
         cd myrole
         molecule test
-      env:
-        LIBVIRT_DEFAULT_URI: qemu:///session
-        LIBVIRT_SYSTEM_URI: qemu:///session
-        LIBVIRT_DOMAIN_TYPE: hvf
 
     

@@ -4,19 +4,18 @@ dependency:
 driver:
   name: vagrant
   provider:
-    name: libvirt
+    name: virtualbox
 platforms:
   - name: centos9
     box: generic/centos9s
     memory: 12288
     cpus: 4
-    provider_options:
-      nested: true
-      cpu_mode: host-passthrough
-      volume_cache: none
-      uri: ${LIBVIRT_DEFAULT_URI:-"/var/run/libvirt/libvirt-sock"}
-      system_uri: ${LIBVIRT_SYSTEM_URI:-"/var/run/libvirt/libvirt-sock"}
-      driver: ${LIBVIRT_DOMAIN_TYPE:-"kvm"}
+    interfaces:
+      - network_name: private_network
+        ip: 192.168.50.20
+    #provider_raw_config_args:
+    #  - "customize [ 'modifyvm', :id, '--natdnshostresolver1', 'on' ]"
+
 provisioner:
   name: ansible
   connection_options:
